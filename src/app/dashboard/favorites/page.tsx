@@ -1,7 +1,7 @@
 import { PokemonGrid, PokemonsResponse, SimplePokemon } from '@/pokemons';
 
 export const metadata = {
-	title: '100 Pokémons',
+	title: 'Favoritos',
 	description: 'Listado de 100 Poké mons estático',
 };
 
@@ -19,12 +19,12 @@ const getPokemons = async (limit = 100, offset = 0): Promise<SimplePokemon[]> =>
 };
 
 export default async function PokemonsPage() {
-	const pokemons = await getPokemons();
-
 	return (
 		<>
-			<span className='text-center block text-4xl py-4'>Listado de Pokémons estático</span>
-			<PokemonGrid pokemons={pokemons} />
+			<span className='text-center block text-4xl py-4'>
+				Pokémons Favoritos <small className='text-blue-500'>Global State</small>
+			</span>
+			<PokemonGrid pokemons={[]} />
 		</>
 	);
 }
