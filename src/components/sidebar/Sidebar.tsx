@@ -7,7 +7,7 @@ import {
 	IoLogoReact,
 } from 'react-icons/io5';
 
-import { SidebarMenuItem } from '.';
+import { SidebarMenuItem } from './SidebarMenuItem';
 
 const menuItems = [
 	{

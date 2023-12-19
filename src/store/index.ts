@@ -1,8 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit'
+// eslint-disable-next-line import/named
+import { useDispatch,TypedUseSelectorHook, useSelector } from 'react-redux'
+
+
+import counterReducer from './counter/counterSlice'
+import pokemonsSlice from './pokemon/pokemonsSlice'
 
 export const store = configureStore({
   reducer: {
-    
+    counter: counterReducer,
+    pokemons: pokemonsSlice,
   },
 })
 
@@ -10,3 +17,6 @@ export const store = configureStore({
 export type RootState = ReturnType<typeof store.getState>
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch
+
+export const useAppDispatch: () => AppDispatch = useDispatch
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
